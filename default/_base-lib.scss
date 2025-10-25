@@ -1,0 +1,53 @@
+/*-- scss:rules --*/
+
+/*
+ * Damit werden alle (erzeugten) Bilder zentriert.
+ */
+.reveal .slide figure {
+    text-align: center;
+}
+
+/*
+ * Quellcode und Ausgaben etwas einrücken. 
+ */
+.cell {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/*
+ * Noch einmal 10 px weiter nach recht.
+ */
+.cell-output {
+  margin-left: 10px;
+}
+
+/*
+  Damit die QR Codes richtig positioniert werden können müssen
+  die display Werte auf inline-blocks und nicht blocks gesetzt werden.
+*/
+.qrcode img {
+  display: inline-block!important;
+}
+
+/*
+ *
+ */
+#quarto-log-error-modal .modal__overlay {
+  display: none !important;
+}
+
+/*
+ * Textalignment
+ */
+.right {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.left {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}

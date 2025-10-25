@@ -1,0 +1,51 @@
+# ------------------------------------------------------------------------
+# Tages aktuell:
+#date: today
+#date-format: "D.MM.YYYY"
+# Semster aktuell: Workaround! Das Semester kommt in den date-format Block!
+# Wichtig! Es muss zwischen den "[", "]" stehen!
+date: 01.01.2025
+date-format: "[WS 2025/26]"
+# ------------------------------------------------------------------------
+institute: "IU Internationale Hochschule"
+author: "Dipl.-Math. Norman Markgraf"
+lang: de-DE
+
+# ------------------------------------------------------------------------
+# Display the page number of the current slide
+# true: Show slide number
+# false: Hide slide number
+# Can optionally be set as a string that specifies the number formatting:
+# h.v: Horizontal . vertical slide number
+# h/v: Horizontal / vertical slide number
+# c: Flattened slide number
+# c/t: Flattened slide number / total slides (default)
+slide-number: c
+
+# ------------------------------------------------------------------------
+# Mit (true) oder ohne (false) Inhaltsverzeichnis
+toc: false
+# In das Verzeichnis soll bis zum Level (1) angezeigt werden.
+# (Nur Level 1 wird zur Zeit (halbwegs)unterstützt.)
+toc-depth: 1
+# Was soll oben stehen, default: "Inhaltsverzeichnis" hier geändert:
+toc-title: "Inhaltsübersicht"
+
+# ------------------------------------------------------------------------
+format:
+  revealjs:
+    number-sections: false
+    #footer: "[{{< meta date>}}]{.date} Beispiel | Dipl.-Math. Norman Markgraf"
+    footer: "IDBS01 | Dipl.-Math. Norman Markgraf"
+    main-font: Arial
+    width: 1920
+    height: 1080 #    height: 1200 oder 1080
+    margin: 0
+    history: true
+    center: false
+    slide-number: true
+    link-external-newwindow: true
+    chalkboard: true
+    theme:
+     - iu.scss # FOM Layout
+engine: knitr

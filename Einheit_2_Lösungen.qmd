@@ -1,0 +1,167 @@
+---
+title: "Einheit 2 -- Lösungen"
+author: "Norman Markgraf"
+---
+## Vorbemerkungen
+
+Leider habe ich den Report 3 bis jetzt nicht ohne `inner join` hinbekommen.
+
+Bei den Ausgaben habe ich mit dem Befehl `round(cast(... as numeric),0)` gearbeitet, um die Zahlen etwas lesbarer zu machen.
+
+Mit dem Befehl `limit 5` habe ich die Top 5 Länder ausgewählt. Wichtig ist dabei mit `where (gdp*agriculture) is not null` sicherzustellen, dass nur Länder berücksichtigt werden, für die auch Daten vorliegen.
+
+
+## Report 1
+
+Aufgabe:
+: Erstellen Sie eine Rangfolge aller Ländercodes, die aufgrund des Anteils der Landwirtschaft am BIP, der Höhe des BIP und der Inflation für eine Expansionsstrategie am besten geeignet sind.
+
+::: {columns}
+::: {.column width="60%"}
+_SQL-Anfrage:_ \
+
+```sql
+select country 
+from economy 
+where (gdp*agriculture) is not null 
+order by (gdp*agriculture) desc 
+limit 5;
+```
+:::
+::: {.column width="40%"}
+
+_Ergebnis:_ \
+
+| country |
+|---------|
+| TJ      |
+| BR      |
+| USA     |      
+| RI      |
+| IR      |
+
+:::
+:::
+
+## Report 2
+
+Aufgabe:
+: Notieren Sie sich die Top 5 Ländercodes und erstellen Sie eine Liste, die ausschließlich die Klarnamen der Länder und der Landeshauptstädte ausgibt.
+
+::: {columns}
+::: {.column width="60%"}
+_SQL-Anfrage:_ \
+
+```sql
+select name, capital from country 
+where code in (
+    select country 
+    from economy 
+    where (gdp*agriculture) is not null 
+    order by (gdp*agriculture) desc 
+    limit 5
+);
+```
+:::
+::: {.column width="40%"}
+_Ergebnis:_ \
+
+| name          | capital    |
+|---------------|------------|
+| China         | Beijing    |
+| Iran          | Tehran     |
+| Indonesia     | Jakarta    |
+| United States | Washington |
+| Brazil        | Brasilia   |
+
+:::
+:::
+
+## Report 3 (mit `inner join`)
+
+Aufgabe:
+: Ermitteln Sie alle Kontinente, auf denen diese Top 5 Länder liegen und errechnen Sie für die Kontinente jeweils die Gesamtsumme des BIP, die in der Landwirtschaft erwirtschaftet werden. Bringen Sie die Kontinente in eine sinnvolle Reihenfolge. Verhindern Sie doppelte Ausgaben.
+
+
+::: {columns}
+::: {.column width="60%"}
+_SQL-Anfrage:_ \
+
+```sql
+select z.continent, round(cast(sum(z.agriculture_gdp) as numeric, 0) as continent_agriculture_gdp
+from (
+    select y.continent, x.country, x.agriculture_gdp 
+    from (
+        select country, (gdp * agriculture) as agriculture_gdp
+        from economy
+        where (gdp * agriculture) is not null
+    ) as x
+    inner join encompasses as y
+    on y.country = x.country
+) as z
+where z.continent in (
+    select distinct continent 
+    from encompasses 
+    where country in (
+        select country 
+        from economy 
+        where (gdp*agriculture) is not null 
+        order by (gdp*agriculture) desc 
+        limit 5
+    )
+)
+group by z.continent
+order by sum(z.agriculture_gdp) desc;
+```
+:::
+::: {.column width="40%"}
+Ergebnis:
+
+
+| continent         | continent_agriculture_gdp |
+|-------------------|---------------------------|
+| Asia              | 142732871                 |
+| America           | 49027090                  |
+| Australia/Oceania | 14001822                  |
+
+:::
+:::
+
+## Report 4
+
+Aufgabe:
+: Weiterhin bittet Ihre Planungsabteilung Sie, die Größe einer durchschnittlichen Stadt für die Top 5 Länder zu ermitteln, sortiert in absteigender Reihenfolge.
+
+
+::: {.columns}
+::: {.column width="60%"}
+SQL-Anfrage:
+
+```sql
+select country, round(cast(avg(population) as numeric), 2) as avg_city_population 
+from city 
+where country in (
+    select country 
+    from economy 
+    where (gdp*agriculture) is not null 
+    order by (gdp*agriculture) desc 
+    limit 5
+)
+group by country;
+```
+:::
+::: {.column width="40%"}
+
+Ergebnis:
+
+
+| country | avg_city_population |
+| --------| ------------------- |
+| USA     | 282661.71           |
+| IR      | 489452.04           |
+| BR      | 379764.48           |
+| TJ      | 514122.57           |
+| RI      | 651567.48           |
+
+:::
+:::

@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+
+$body-bg: #f8f8f9 !default;
+$kapitel-bg: #737D86 !default;
+$kapitel-fc: #ffffff !default; // white
+$kapitel-number-bg: #59C3B2 !default;
+$body-color: #222 !default;
+$border-color: #00998A !default;
+$border-color-left: #00998A !default;
+$border-color-right: #00998A !default;
+$presentation-heading-color: white !default;
+$presentation-title-slide-text-align: right !default;
+
+/*
+* Einstellungen für den Hintergrund der Titelseite
+*/
+$background-image: url("../../../../../img/Layout/fom-background-neu.png") !default;
+$background-logo-image: url(../../../../../img/Layout/fom-logo.png) !default;
+$background-logo-size: 75px 75px !default;
+$background-logo-position: right 10px top 10px !default;
+/*
+ * Einstellungen für die Kopfzeile (normal und für Übungen)
+ */
+$kopfzeilen-image: url("../../../../../img/Layout/fom-kopfzeile.png") !default;
+$kopfzeilen-uebungs-image: url("../../../../../img/Layout/fom-kopfzeile-uebung.png") !default;
+
+/*
+ * Einstellungen für das Inhaltsverzeichnis
+ */
+$toc-light-bc: #EAF4F2!default;
+$toc-border-color:  #00998A !default;

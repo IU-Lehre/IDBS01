@@ -1,0 +1,105 @@
+/*-- scss:uses --*/
+
+@use 'default/colors';
+@use 'default/fontsstyles';
+@use 'default/base-lib';
+
+/*-- scss:rules --*/
+
+
+section#title-slide {
+  height: 100%;
+  width: 100%;
+  background-color: #84f8fd;
+  font-family: 'Source Sans Pro', 'Arial Black', sans-serif;
+}
+
+#title-slide h1.title {
+  display: inline;
+  position: absolute;
+  top: 8.11cm; //7.11cm;
+  left: 0cm;
+  text-transform: uppercase;
+  font-size: 42px; //38px;
+  color: #000000;
+  background-color: white;
+  font-family: 'Source Sans Pro Bold', 'Source Sans Pro', 'Arial Black', sans-serif;
+  font-weight: 950!important;
+  text-align: left!important;
+  padding: 6px 20px 8px 20px;
+}
+
+#title-slide div.quarto-title-authors {
+    display: inline!important;
+    text-align: left!important;
+}
+#title-slide div.quarto-title-authors div.quarto-title-author div.quarto-title-author-name::before {
+  content: "DOZIERENDER: ";
+}
+
+#title-slide div.quarto-title-authors div.quarto-title-author div.quarto-title-author-name {
+  text-transform: uppercase;
+  font-size: 18px; //14px;
+  display: inline;
+  color: white;
+  background-color: black;
+  font-family: 'Source Sans Pro', 'Arial Black', sans-serif;
+  position: absolute;
+  top: 7.23cm; //6.23cm;
+  left: 0cm;
+  text-align: left;
+  padding: 5px 20px 5px 20px;
+}
+
+#title-slide p.date,
+#title-slide div.quarto-title-authors p.quarto-title-affiliation {
+    display: none;
+  }
+
+
+#title-slide p.subtitle {
+  display: none;
+}
+
+section.slide {
+  font-family: 'Source Sans Pro', 'Arial Black', sans-serif;
+  margin-left: 0.96cm;
+  margin-right: 0.96cm;
+}
+
+.slide h2 {
+  font-family: 'Source Sans Pro Bold', Source Sans ProA, 'Arial Black', sans-serif;
+  font-weight: 950!important;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: black;
+  margin-top: 1.17cm;
+  margin-bottom: 1.2cm;
+}
+
+.slide {
+  font-family: 'Source Sans Pro Bold', Source Sans ProA, 'Arial Black', sans-serif;
+  font-size: 32px;
+}
+
+.reveal .footer {
+  text-align: left!important;
+  margin-left: 140px!important;
+  text-size: 18px!important;
+}
+
+.reveal dd {
+    margin-right:2cm;
+}
+
+.reveal .slide-number {
+//  left: 10px!important;
+//  bottom: 58px!important;
+  text-size: 18px!important;
+}
+
+.reveal .slide-number-delimiter,
+.reveal .slide-number-b {
+  display: none;
+}
+
