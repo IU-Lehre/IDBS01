@@ -1,10 +1,13 @@
 ---
-title: "Einheit 2 -- Lösungen"
+title: "IDBS01 -- Einheit 2 -- Lösungen"
 author: "Norman Markgraf"
 ---
 ## Vorbemerkungen
 
-Leider habe ich den Report 3 bis jetzt nicht ohne `inner join` hinbekommen.
+Leider habe ich den Report 3 (bis jetzt?) nicht ohne den Befehl `inner join` hinbekommen. Ich denke auch nicht, dass es geht. In sofern gehe ich davon aus, dass die Aufgabenstellung hier nicht zum aktuellen Lernstoff passt.
+
+Ich habe die Datenbank `mondial` auf einem PostgresSQL-Datenbanksystem getestet. 
+Es gibt eine SQL-Dialekte, die sich in Details unterscheiden können. 
 
 Bei den Ausgaben habe ich mit dem Befehl `round(cast(... as numeric),0)` gearbeitet, um die Zahlen etwas lesbarer zu machen.
 
@@ -15,6 +18,8 @@ Mit dem Befehl `limit 5` habe ich die Top 5 Länder ausgewählt. Wichtig ist dab
 
 Aufgabe:
 : Erstellen Sie eine Rangfolge aller Ländercodes, die aufgrund des Anteils der Landwirtschaft am BIP, der Höhe des BIP und der Inflation für eine Expansionsstrategie am besten geeignet sind.
+
+**Lösungsvorschlag:** \
 
 ::: {columns}
 ::: {.column width="60%"}
@@ -47,6 +52,8 @@ _Ergebnis:_ \
 
 Aufgabe:
 : Notieren Sie sich die Top 5 Ländercodes und erstellen Sie eine Liste, die ausschließlich die Klarnamen der Länder und der Landeshauptstädte ausgibt.
+
+**Lösungsvorschlag:** \
 
 ::: {columns}
 ::: {.column width="60%"}
@@ -82,6 +89,7 @@ _Ergebnis:_ \
 Aufgabe:
 : Ermitteln Sie alle Kontinente, auf denen diese Top 5 Länder liegen und errechnen Sie für die Kontinente jeweils die Gesamtsumme des BIP, die in der Landwirtschaft erwirtschaftet werden. Bringen Sie die Kontinente in eine sinnvolle Reihenfolge. Verhindern Sie doppelte Ausgaben.
 
+**Lösungsvorschlag:** \
 
 ::: {columns}
 ::: {.column width="60%"}
@@ -132,6 +140,7 @@ Ergebnis:
 Aufgabe:
 : Weiterhin bittet Ihre Planungsabteilung Sie, die Größe einer durchschnittlichen Stadt für die Top 5 Länder zu ermitteln, sortiert in absteigender Reihenfolge.
 
+**Lösungsvorschlag:** \
 
 ::: {.columns}
 ::: {.column width="60%"}
@@ -162,6 +171,15 @@ Ergebnis:
 | BR      | 379764.48           |
 | TJ      | 514122.57           |
 | RI      | 651567.48           |
+: {.striped}
+:::
+:::
 
-:::
-:::
+## {.unnumberd .copyright}
+
+© 2025 Norman Markgraf. Bezogen auf die Lösungen\
+© 2022 IU Internationale Hochschule GmbH. Bezogen auf Layout und Rest. \
+Diese Inhalte sind urheberrechtlich geschützt. Alle Rechte vorbehalten. \
+Diese Inhalte dürfen in jeglicher Form ohne vorherige schriftliche Genehmigung der IU Internationale \
+Hochschule GmbH nicht reproduziert und/oder unter Verwendung elektronischer Systeme verarbeitet, \
+vervielfältigt oder verbreitet werden.
